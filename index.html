@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="error=!error">Hata Toggle'ı</button>
+      <button v-on:click="success=!success">Başarılı İşlem Toggle'ı</button>
+
+      <!-- <p v-if="error">İşlem Hata Verdi</p>
+      <p v-else-if="success">İşlem Başarılı</p> (AÇIKLAMA: v-if tamamen kaldırırır.) -->
+
+      <p v-show="error">İşlem Hata Verdi</p>
+      <p v-show="success">İşlem Başarılı</p>
+      <!-- v-show sadece displayini none yapar. -->
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+      createApp({
+        data() {
+          return {
+            error: false,
+            success: false,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
